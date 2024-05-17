@@ -1,0 +1,18 @@
+{
+  "name": "albicocca_recipe_db_sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create-db": "psql -f ./db/01-create-db.sql",
+    "populate-db": "psql -f ./db/02-populate_db.sql > ./db/02-tables.txt",
+    "setup-all": "npm run create-db && npm run populate-db",
+    "query-db": "psql -f ./db/03-query-db.sql > ./db/03-query-db.txt",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+
+}

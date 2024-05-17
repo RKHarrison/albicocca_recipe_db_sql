@@ -1,19 +1,5 @@
 \c albicocca
 
-INSERT INTO recipes 
-(recipe_name, recipe_desc)
-VALUES
-('Bruschetta', 'A traditional Italian appetizer made with toasted bread, garlic, tomatoes, and basil.'),
-('Spaghetti Carbonara', 'A classic Roman pasta dish made with eggs, cheese, pancetta, and pepper.'),
-('Tiramisu', 'A popular Italian dessert made with layers of coffee-soaked ladyfingers, mascarpone cheese, and cocoa powder.'),
-('Margherita Pizza', 'A classic Neapolitan pizza topped with tomatoes, mozzarella, and basil.'),
-('Lasagna', 'A traditional Italian dish made with layers of pasta, meat sauce, and cheese.'),
-('Minestrone Soup', 'A hearty vegetable soup with beans, pasta, and a variety of vegetables.'),
-('Risotto alla Milanese', 'A creamy risotto made with saffron and Parmesan cheese.'),
-('Chicken Parmesan', 'Breaded chicken cutlets topped with marinara sauce and melted cheese.'),
-('Panna Cotta', 'A creamy dessert made with sweetened cream and gelatin, often flavored with vanilla.'),
-('Focaccia', 'An Italian flatbread topped with olive oil, rosemary, and sea salt.');
-
 INSERT INTO courses
 (course_name)
 VALUES
@@ -21,6 +7,20 @@ VALUES
 ('Primo'),
 ('Secundo'),
 ('Dolce');
+
+INSERT INTO recipes 
+(recipe_name, recipe_desc, course_id)
+VALUES
+('Bruschetta', 'A traditional Italian appetizer made with toasted bread, garlic, tomatoes, and basil.', 1),
+('Spaghetti Carbonara', 'A classic Roman pasta dish made with eggs, cheese, pancetta, and pepper.', 2),
+('Tiramisu', 'A popular Italian dessert made with layers of coffee-soaked ladyfingers, mascarpone cheese, and cocoa powder.', 4),
+('Margherita Pizza', 'A classic Neapolitan pizza topped with tomatoes, mozzarella, and basil.', 3),
+('Lasagna', 'A traditional Italian dish made with layers of pasta, meat sauce, and cheese.', 2),
+('Minestrone Soup', 'A hearty vegetable soup with beans, pasta, and a variety of vegetables.', 1),
+('Risotto alla Milanese', 'A creamy risotto made with saffron and Parmesan cheese.', 2),
+('Chicken Parmesan', 'Breaded chicken cutlets topped with marinara sauce and melted cheese.', 3),
+('Panna Cotta', 'A creamy dessert made with sweetened cream and gelatin, often flavored with vanilla.', 4),
+('Focaccia', 'An Italian flatbread topped with olive oil, rosemary, and sea salt.', 1);
 
 INSERT INTO categories
 (category_name)
@@ -74,7 +74,7 @@ VALUES
 INSERT INTO recipe_categories 
 (recipe_id, category_id)
 VALUES
-   -- Bruschetta
+    (1, 1),-- Bruschetta
     (1, 2),  -- Vegetarian
     -- Spaghetti Carbonara
     (2, 5),  -- Pasta

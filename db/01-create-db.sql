@@ -1,20 +1,20 @@
 DROP DATABASE IF EXISTS albicocca;
-DROP TABLE IF EXISTS recipe, course, category, ingredients, recipe_categories, recipe_ingredients;
-
 CREATE DATABASE albicocca;
-
 \c albicocca
 
+
+-- MAIN TABLES
+CREATE TABLE courses (
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(25)
+
+);
 
 CREATE TABLE recipes (
     recipe_id SERIAL PRIMARY KEY,
     recipe_name VARCHAR(25),
-    recipe_desc VARCHAR(350)
-);
-
-CREATE TABLE courses (
-    course_id SERIAL PRIMARY KEY,
-    course_name VARCHAR(25)
+    recipe_desc VARCHAR(350),
+    course_id INT REFERENCES courses(course_id)
 );
 
 CREATE TABLE categories (
@@ -28,7 +28,7 @@ CREATE TABLE ingredients (
 );
 
 
--- JUNCTION TABLES
+-- JUNCTION TABLES AND RELATIONSHIPS
 CREATE TABLE recipe_categories (
     recipe_categories_id SERIAL PRIMARY KEY,
     recipe_id INT REFERENCES recipes(recipe_id),
